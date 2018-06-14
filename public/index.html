@@ -34,10 +34,18 @@
     <input type="text" placeholder="What needs to be done?">
     <div class="item">
       <label class="label">
-                <input type="checkbox" checked="checked">
+                <input type="checkbox">
                 <span class="checkmark"></span>
             </label>
       <div class="content" contenteditable="true">item1</div>
+      <i class="far fa-trash-alt delete"></i>
+    </div>
+    <div class="item">
+      <label class="label">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+      <div class="content done" contenteditable="false">item1</div>
       <i class="far fa-trash-alt delete"></i>
     </div>
     <div class="info">
@@ -73,10 +81,10 @@
         </div>
       </div>
       <div class="operation">
-        <div class="action">
+        <div class="action" id="mark-all-done">
           Mark All Done
         </div>
-        <div class="action">
+        <div class="action" id="clear-completed">
           Clear Completed
         </div>
       </div>
