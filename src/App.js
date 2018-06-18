@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
 import Title from "./components/Title";
-import Input from "./components/Input";
+import MainInput from "./components/MainInput";
 import Item from "./components/Item";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -10,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      category: "all"
     };
   }
 
@@ -38,8 +40,30 @@ class App extends Component {
     });
   };
 
+  handleFilter = category => {
+    this.setState({
+      category: category
+    });
+  };
+
+  filter = (array, category) => {
+    if (category === "all") return array;
+    if (category === "active") {
+      return array.filter(element => !element.isDone); //not done = active items
+    } else {
+      return array.filter(element => element.isDone); //done = completed items
+    }
+  };
+
   render() {
-    const ItemList = this.state.data.map((e, i) => (
+    const { data, category } = this.state;
+
+    console.log(data);
+
+    const showFooter = this.state.data.length > 0;
+    const displayData = this.filter(data, category);
+
+    const ItemList = displayData.map((e, i) => (
       <Item
         data={e}
         index={i}
@@ -48,13 +72,19 @@ class App extends Component {
         deleteData={this.deleteData}
       />
     ));
-    console.log(this.state.data);
+
     return (
       <div className="wrapper">
         <Title />
         <div className="container">
-          <Input addData={this.addData} />
+          <MainInput addData={this.addData} />
           {ItemList}
+          {showFooter && (
+            <Footer
+              length={this.state.data.length}
+              handleFilter={this.handleFilter}
+            />
+          )}
         </div>
       </div>
     );
