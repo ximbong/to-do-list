@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./index.css";
 
-class Input extends Component {
+class MainInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,4 +45,4 @@ class Input extends Component {
   }
 }
 
-export default Input;
+export default MainInput;
