@@ -29,6 +29,11 @@ class Item extends Component {
     this.setState({ value: event.target.value });
   };
 
+  delete = index => {
+    this.props.deleteData(index);
+    console.log(index);
+  };
+
   handleClassName = () => {
     return this.props.data.isDone ? "content done" : "content";
   };
@@ -59,7 +64,6 @@ class Item extends Component {
     const index = this.props.index;
     const { value, editable } = this.state;
 
-    console.log(this.state);
     return (
       <div className="item">
         {!editable && (
@@ -90,7 +94,10 @@ class Item extends Component {
           </div>
         )}
 
-        <i className="far fa-trash-alt delete" />
+        <i
+          className="far fa-trash-alt delete"
+          onClick={() => this.delete(index)}
+        />
       </div>
     );
   }

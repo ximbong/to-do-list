@@ -29,9 +29,24 @@ class App extends Component {
     });
   };
 
+  deleteData = index => {
+    const proxy = [...this.state.data];
+    proxy.splice(index, 1);
+
+    this.setState({
+      data: proxy
+    });
+  };
+
   render() {
     const ItemList = this.state.data.map((e, i) => (
-      <Item data={e} index={i} key={i} updateData={this.updateData} />
+      <Item
+        data={e}
+        index={i}
+        key={i}
+        updateData={this.updateData}
+        deleteData={this.deleteData}
+      />
     ));
     console.log(this.state.data);
     return (
