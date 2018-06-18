@@ -21,7 +21,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>React App</title>
+  <title>To-do list</title>
 </head>
 
 <body>
@@ -29,67 +29,6 @@
       You need to enable JavaScript to run this app.
     </noscript>
   <div id="root"></div>
-  <div class="title">To-do List</div>
-  <div class="container">
-    <input type="text" placeholder="What needs to be done?">
-    <div class="item">
-      <label class="label">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-      <div class="content" contenteditable="true">item1</div>
-      <i class="far fa-trash-alt delete"></i>
-    </div>
-    <div class="item">
-      <label class="label">
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>
-      <div class="content done" contenteditable="false">item1</div>
-      <i class="far fa-trash-alt delete"></i>
-    </div>
-    <div class="info">
-      <div class="quantity">
-        0 items left
-      </div>
-      <div class="buttons">
-        <div class="custom-radios">
-          <div class="category">
-            <input type="radio" id="radio-1" name="radio" value="radio-1" checked="">
-            <label for="radio-1">
-               <span>
-                 All
-               </span>
-             </label>
-          </div>
-          <div class="category">
-            <input type="radio" id="radio-2" name="radio" value="radio-2" checked="">
-            <label for="radio-2">
-               <span>
-                Active
-               </span>
-             </label>
-          </div>
-          <div class="category">
-            <input type="radio" id="radio-3" name="radio" value="radio-3" checked="">
-            <label for="radio-3">
-               <span>
-                Completed
-               </span>
-             </label>
-          </div>
-        </div>
-      </div>
-      <div class="operation">
-        <div class="action" id="mark-all-done">
-          Mark All Done
-        </div>
-        <div class="action" id="clear-completed">
-          Clear Completed
-        </div>
-      </div>
-    </div>
-  </div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
