@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FooterRadioButton from "../FooterRadioButton";
 
 class DisplayModeButtons extends Component {
   constructor(props) {
@@ -8,47 +9,32 @@ class DisplayModeButtons extends Component {
     };
   }
 
-  changeID(event) {
+  changeID = event => {
     const value = event.target.value;
 
     this.setState({ selected_id: value });
     this.props.handleFilter(value);
-  }
+  };
 
   render() {
     return (
       <div className="buttons">
         <div className="custom-radios">
-          <div className="category">
-            <input
-              type="radio"
-              id="all"
-              value="all"
-              checked={this.state.selected_id === "all"}
-              onChange={event => this.changeID(event)}
-            />
-            <label htmlFor="all">All</label>
-          </div>
-          <div className="category">
-            <input
-              type="radio"
-              id="active"
-              value="active"
-              checked={this.state.selected_id === "active"}
-              onChange={event => this.changeID(event)}
-            />
-            <label htmlFor="active">Active</label>
-          </div>
-          <div className="category">
-            <input
-              type="radio"
-              id="completed"
-              value="completed"
-              checked={this.state.selected_id === "completed"}
-              onChange={event => this.changeID(event)}
-            />
-            <label htmlFor="completed">Completed</label>
-          </div>
+          <FooterRadioButton
+            id="all"
+            changeID={this.changeID}
+            selected_id={this.state.selected_id}
+          />
+          <FooterRadioButton
+            id="active"
+            changeID={this.changeID}
+            selected_id={this.state.selected_id}
+          />
+          <FooterRadioButton
+            id="completed"
+            changeID={this.changeID}
+            selected_id={this.state.selected_id}
+          />
         </div>
       </div>
     );
