@@ -3,7 +3,8 @@ import React, { PureComponent } from "react";
 import ItemInput from "../ItemInput";
 import ItemInfo from "../ItemInfo";
 import ItemCheckbox from "../ItemCheckbox";
-// import "./index.css";
+
+import "./index.css";
 
 class Item extends PureComponent {
   constructor(props) {

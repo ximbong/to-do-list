@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./index.css";
+
 const ItemInfo = ({ handleClassName, toggleEditState, value }) => {
   return (
     //intentionally trigger the function

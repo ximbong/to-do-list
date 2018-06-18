@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./index.css";
+
 const ItemInput = ({ value, index, updateData, edit }) => {
   return (
     <input

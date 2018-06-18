@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./index.css";
+
 const OperationButtons = ({ markAllDone, clearCompleted }) => {
   return (
     <div className="operation">

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import FooterRadioButton from "../FooterRadioButton";
 
+import "./index.css";
+
 class DisplayModeButtons extends Component {
   constructor(props) {
     super(props);

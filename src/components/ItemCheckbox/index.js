@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./index.css";
+
 const ItemCheckBox = ({ updateStatus, index, checked }) => {
   return (
     <label className="label">

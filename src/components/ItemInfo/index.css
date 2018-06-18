@@ -1,0 +1,11 @@
+.content {
+  margin-left: 15px;
+  padding: 15px;
+  flex: 1 1 auto;
+  color: #4d4d4d;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.4;
+}

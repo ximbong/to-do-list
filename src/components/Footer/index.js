@@ -3,6 +3,8 @@ import React from "react";
 import DisplayModeButtons from "../DisplayModeButtons";
 import OperationButtons from "../OperationButtons";
 
+import "./index.css";
+
 const Footer = ({ length, handleFilter, markAllDone, clearCompleted }) => {
   return (
     <div className="info">

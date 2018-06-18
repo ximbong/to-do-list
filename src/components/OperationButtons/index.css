@@ -1,0 +1,21 @@
+.operation {
+  padding: 12px 0;
+}
+.action {
+  font-size: 80%;
+  padding: 3px 0;
+  cursor: pointer;
+  text-align: right;
+}
+
+.action:hover {
+  text-decoration: underline;
+}
+
+#mark-all-done:hover {
+  color: var(--green);
+}
+
+#clear-completed:hover {
+  color: var(--red);
+}

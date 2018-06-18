@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./index.css";
+
 const FooterRadioButton = ({ id, changeID, selected_id }) => {
   return (
     <div className="category">
