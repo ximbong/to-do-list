@@ -67,8 +67,8 @@ class Item extends PureComponent {
   };
 
   render() {
-    const isDone = this.props.data.isDone;
     const index = this.props.index;
+    const checked = this.props.data.isDone; //item checked = done
     const { value, editable } = this.state;
 
     return (
@@ -82,7 +82,11 @@ class Item extends PureComponent {
           />
         ) : (
           <React.Fragment>
-            <ItemCheckbox updateStatus={this.updateStatus} index={index} />
+            <ItemCheckbox
+              updateStatus={this.updateStatus}
+              index={index}
+              checked={checked}
+            />
             <ItemInfo
               handleClassName={this.handleClassName}
               toggleEditState={this.toggleEditState}

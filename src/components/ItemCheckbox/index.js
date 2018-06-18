@@ -1,9 +1,13 @@
 import React from "react";
 
-const ItemCheckBox = ({ updateStatus, index }) => {
+const ItemCheckBox = ({ updateStatus, index, checked }) => {
   return (
     <label className="label">
-      <input type="checkbox" onChange={event => updateStatus(event, index)} />
+      <input
+        type="checkbox"
+        onChange={event => updateStatus(event, index)}
+        checked={checked}
+      />
       <span className="checkmark" />
     </label>
   );
