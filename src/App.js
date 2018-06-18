@@ -55,6 +55,25 @@ class App extends Component {
     }
   };
 
+  markAllDone = () => {
+    const newData = this.state.data.map(e => {
+      const sources = [{ name: e.name }, { isDone: true }];
+      return Object.assign.apply(Object, [{}].concat(sources));
+    });
+
+    this.setState({
+      data: newData
+    });
+  };
+
+  clearCompleted = () => {
+    const newData = this.state.data.filter(e => !e.isDone);
+
+    this.setState({
+      data: newData
+    });
+  };
+
   render() {
     const { data, category } = this.state;
 
@@ -82,6 +101,8 @@ class App extends Component {
             <Footer
               length={activeItemsLength}
               handleFilter={this.handleFilter}
+              markAllDone={this.markAllDone}
+              clearCompleted={this.clearCompleted}
             />
           )}
         </div>
