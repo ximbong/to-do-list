@@ -11,17 +11,17 @@ class Item extends PureComponent {
     super(props);
     this.state = {
       editable: false,
-      value: ""
+      value: this.props.data.name
     };
   }
 
-  componentDidMount() {
-    this.setState({ value: this.props.data.name });
-  }
+  // componentDidMount() {
+  //   this.setState({ value: this.props.data.name });
+  // }
 
   componentDidUpdate() {
     if (this.state.value !== this.props.data.name)
-      this.setState({ value: this.props.data.name });
+      this.setState({ value: this.state.value });
   }
 
   toggleEditState = () => {
