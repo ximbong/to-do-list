@@ -58,10 +58,9 @@ class App extends Component {
   render() {
     const { data, category } = this.state;
 
-    console.log(data);
-
-    const showFooter = this.state.data.length > 0;
-    const displayData = this.filter(data, category);
+    const showFooter = this.state.data.length > 0; //show footer if data isn't empty
+    const displayData = this.filter(data, category); //displayData based on filter
+    const activeItemsLength = this.filter(data, "active").length; //number of incompleted items
 
     const ItemList = displayData.map((e, i) => (
       <Item
@@ -81,7 +80,7 @@ class App extends Component {
           {ItemList}
           {showFooter && (
             <Footer
-              length={this.state.data.length}
+              length={activeItemsLength}
               handleFilter={this.handleFilter}
             />
           )}
