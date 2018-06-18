@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
+import ItemInput from "../ItemInput";
+import ItemInfo from "../ItemInfo";
+import ItemCheckbox from "../ItemCheckbox";
 // import "./index.css";
 
-class Item extends Component {
+class Item extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +18,12 @@ class Item extends Component {
     this.setState({ value: this.props.data.name });
   }
 
-  handleEditState = () => {
+  componentDidUpdate() {
+    if (this.state.value !== this.props.data.name)
+      this.setState({ value: this.props.data.name });
+  }
+
+  toggleEditState = () => {
     if (!this.props.data.isDone) {
       //done items can't be edited
       this.setState({
@@ -31,7 +39,6 @@ class Item extends Component {
 
   delete = index => {
     this.props.deleteData(index);
-    console.log(index);
   };
 
   handleClassName = () => {
@@ -55,7 +62,7 @@ class Item extends Component {
       isDone: false
     };
 
-    this.handleEditState();
+    this.toggleEditState();
     this.props.updateData(data, index);
   };
 
@@ -66,32 +73,22 @@ class Item extends Component {
 
     return (
       <div className="item">
-        {!editable && (
-          <label className="label">
-            <input
-              type="checkbox"
-              onChange={event => this.updateStatus(event, index)}
-            />
-            <span className="checkmark" />
-          </label>
-        )}
-
         {editable ? (
-          <input
+          <ItemInput
+            index={index}
+            updateData={this.updateData}
+            edit={this.edit}
             value={value}
-            onBlur={event => this.updateData(event, index)}
-            onChange={this.edit}
-            className="content"
-            type="text"
-            autoFocus
           />
         ) : (
-          <div
-            className={this.handleClassName()}
-            onClick={this.handleEditState}
-          >
-            {value}
-          </div>
+          <React.Fragment>
+            <ItemCheckbox updateStatus={this.updateStatus} index={index} />
+            <ItemInfo
+              handleClassName={this.handleClassName}
+              toggleEditState={this.toggleEditState}
+              value={value}
+            />
+          </React.Fragment>
         )}
 
         <i
