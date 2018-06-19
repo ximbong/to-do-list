@@ -11,17 +11,8 @@ class Item extends PureComponent {
     super(props);
     this.state = {
       editable: false,
-      value: this.props.data.name
+      value: props.data.name
     };
-  }
-
-  // componentDidMount() {
-  //   this.setState({ value: this.props.data.name });
-  // }
-
-  componentDidUpdate() {
-    if (this.state.value !== this.props.data.name)
-      this.setState({ value: this.state.value });
   }
 
   toggleEditState = () => {
@@ -58,9 +49,13 @@ class Item extends PureComponent {
 
   updateData = (event, index) => {
     const name = event.target.value;
+    const date = new Date();
+    const uniqueID = date.getTime(); //generate newID on update
+
     const data = {
       name: name,
-      isDone: false
+      isDone: false,
+      uniqueID: uniqueID
     };
 
     this.toggleEditState();

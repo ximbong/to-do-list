@@ -20,9 +20,13 @@ class MainInput extends Component {
     event.preventDefault();
 
     const name = this.state.value;
+    const date = new Date();
+    const uniqueID = date.getTime(); //generate uniqueID from time
+
     const data = {
       name: name,
-      isDone: false
+      isDone: false,
+      uniqueID: uniqueID
     };
 
     this.props.addData(data);
