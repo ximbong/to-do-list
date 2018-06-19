@@ -49,15 +49,19 @@ class App extends Component {
   filter = (array, category) => {
     if (category === "all") return array;
     if (category === "active") {
-      return array.filter(element => !element.isDone); //not done = active items
+      return array.filter(element => !element.props.data.isDone); //not done = active items
     } else {
-      return array.filter(element => element.isDone); //done = completed items
+      return array.filter(element => element.props.data.isDone); //done = completed items
     }
   };
 
   markAllDone = () => {
     const newData = this.state.data.map(e => {
-      const sources = [{ name: e.name }, { isDone: true }];
+      const sources = [
+        { name: e.name },
+        { isDone: true },
+        { uniqueID: e.uniqueID }
+      ];
       return Object.assign.apply(Object, [{}].concat(sources));
     });
 
@@ -77,12 +81,8 @@ class App extends Component {
   render() {
     const { data, category } = this.state;
     const showFooter = this.state.data.length > 0; //show footer if data isn't empty
-    const displayData = this.filter(data, category); //displayData based on filter
-    const activeItemsLength = this.filter(data, "active").length; //number of incompleted items
 
-    console.log(data);
-
-    const ItemList = displayData.map((e, i) => (
+    const ItemList = data.map((e, i) => (
       <Item
         data={e}
         index={i}
@@ -92,12 +92,15 @@ class App extends Component {
       />
     ));
 
+    const DisplayItems = this.filter(ItemList, category); //displayData based on filter
+    const activeItemsLength = this.filter(ItemList, "active").length;
+
     return (
       <div className="wrapper">
         <Title />
         <div className="container">
           <MainInput addData={this.addData} />
-          {ItemList}
+          {DisplayItems}
           {showFooter && (
             <Footer
               length={activeItemsLength}
