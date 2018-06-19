@@ -18,21 +18,23 @@ class MainInput extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     const name = this.state.value;
-    const date = new Date();
-    const uniqueID = date.getTime(); //generate uniqueID from time
 
-    const data = {
-      name: name,
-      isDone: false,
-      uniqueID: uniqueID
-    };
-
-    this.props.addData(data);
-    this.setState({
-      value: ""
-    });
+    if (!name) {
+      alert("No empty input please!");
+    } else {
+      const date = new Date();
+      const uniqueID = date.getTime(); //generate uniqueID from time
+      const data = {
+        name: name,
+        isDone: false,
+        uniqueID: uniqueID
+      };
+      this.props.addData(data);
+      this.setState({
+        value: ""
+      });
+    }
   };
 
   render() {
