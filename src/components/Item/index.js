@@ -39,9 +39,12 @@ class Item extends PureComponent {
 
   updateStatus = (event, index) => {
     const isDone = event.target.checked;
+    const uniqueID = this.props.data.uniqueID;
+
     const data = {
       name: this.state.value,
-      isDone: isDone
+      isDone: isDone,
+      uniqueID: uniqueID
     };
 
     this.props.updateData(data, index);
@@ -49,8 +52,7 @@ class Item extends PureComponent {
 
   updateData = (event, index) => {
     const name = event.target.value;
-    const date = new Date();
-    const uniqueID = date.getTime(); //generate newID on update
+    const uniqueID = this.props.data.uniqueID;
 
     const data = {
       name: name,
