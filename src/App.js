@@ -76,16 +76,17 @@ class App extends Component {
 
   render() {
     const { data, category } = this.state;
-
     const showFooter = this.state.data.length > 0; //show footer if data isn't empty
     const displayData = this.filter(data, category); //displayData based on filter
     const activeItemsLength = this.filter(data, "active").length; //number of incompleted items
+
+    console.log(data);
 
     const ItemList = displayData.map((e, i) => (
       <Item
         data={e}
         index={i}
-        key={i}
+        key={e.uniqueID}
         updateData={this.updateData}
         deleteData={this.deleteData}
       />
