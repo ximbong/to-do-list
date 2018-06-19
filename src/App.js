@@ -16,6 +16,18 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    const data = JSON.parse(localStorage.getItem("data"));
+
+    this.setState({
+      data: data
+    });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("data", JSON.stringify(this.state.data));
+  }
+
   addData = newValue => {
     this.setState({
       data: [...this.state.data, newValue]
