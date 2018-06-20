@@ -1,3 +1,4 @@
-input {
+.item input {
   outline: 1px solid #dadada;
+  font-size: 80%;
 }

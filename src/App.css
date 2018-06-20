@@ -70,4 +70,8 @@
   #clear-completed {
     color: var(--red);
   }
+
+  .delete {
+    opacity: 1;
+  }
 }
