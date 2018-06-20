@@ -8,7 +8,7 @@ import "./index.css";
 const Footer = ({ length, handleFilter, markAllDone, clearCompleted }) => {
   return (
     <div className="info">
-      <div className="quantity">{length} items left</div>
+      <div className="quantity">{length} item(s) left</div>
       <DisplayModeButtons handleFilter={handleFilter} />
       <OperationButtons
         markAllDone={markAllDone}
