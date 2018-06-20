@@ -37,6 +37,12 @@ class Item extends PureComponent {
     return this.props.data.isDone ? "content done" : "content";
   };
 
+  handleKeyPress = (event, index) => {
+    if (event.key === "Enter") {
+      this.updateData(event, index);
+    }
+  };
+
   updateStatus = (event, index) => {
     const isDone = event.target.checked;
     const uniqueID = this.props.data.uniqueID;
@@ -77,6 +83,7 @@ class Item extends PureComponent {
             updateData={this.updateData}
             edit={this.edit}
             value={value}
+            handleKeyPress={this.handleKeyPress}
           />
         ) : (
           <React.Fragment>
