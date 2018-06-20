@@ -39,7 +39,7 @@ class MainInput extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} onBlur={this.handleSubmit}>
         <input
           value={this.state.value}
           onChange={this.handleChange}
