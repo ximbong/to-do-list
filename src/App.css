@@ -38,6 +38,7 @@
   }
 
   .title {
+    margin-top: 5px;
     margin-bottom: 10px;
   }
 
@@ -60,5 +61,13 @@
 
   .action {
     text-align: center;
+  }
+
+  #mark-all-done {
+    color: var(--green);
+  }
+
+  #clear-completed {
+    color: var(--red);
   }
 }
