@@ -30,3 +30,35 @@
 .container > * {
   border-bottom: 1px solid #dadada !important;
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 10px;
+    font-size: 90%;
+  }
+
+  .title {
+    margin-bottom: 10px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .info {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .operation {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .action {
+    text-align: center;
+  }
+}
