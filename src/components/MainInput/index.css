@@ -6,5 +6,6 @@ form {
 form > input {
   padding: 15px 15px 15px 60px;
   font-size: 80%;
-  border: 0;
+  border: none;
+  outline: none;
 }
