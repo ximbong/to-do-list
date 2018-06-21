@@ -24,10 +24,6 @@
   border-radius: 50%;
 }
 
-.label:hover input ~ .checkmark {
-  background-color: #efefef;
-}
-
 .label input:checked ~ .checkmark {
   background-color: var(--green);
 }
@@ -52,4 +48,10 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+@media (min-width: 600px) {
+  .label:hover input ~ .checkmark {
+    background-color: #efefef;
+  }
 }
