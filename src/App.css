@@ -74,4 +74,8 @@
   .delete {
     opacity: 1;
   }
+
+  .label:hover input ~ .checkmark {
+    background-color: white;
+  }
 }
