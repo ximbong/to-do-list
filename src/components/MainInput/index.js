@@ -20,8 +20,8 @@ class MainInput extends Component {
     event.preventDefault();
     const name = this.state.value;
 
-    if (!name) {
-      alert("No empty input please!");
+    if (!name.trim()) {
+      // alert("No empty input please!");
     } else {
       const date = new Date();
       const uniqueID = date.getTime(); //generate uniqueID from time
@@ -31,10 +31,10 @@ class MainInput extends Component {
         uniqueID: uniqueID
       };
       this.props.addData(data);
-      this.setState({
-        value: ""
-      });
     }
+    this.setState({
+      value: ""
+    });
   };
 
   render() {
