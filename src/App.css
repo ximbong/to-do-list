@@ -76,6 +76,6 @@
   }
 
   .label:hover input ~ .checkmark {
-    background-color: white;
+    background-color: none;
   }
 }
